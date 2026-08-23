@@ -54,6 +54,31 @@ export default function DarkroomLoupe({
     setRelPos({ x: xPct, y: yPct });
   };
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current || !loupeActive || !e.touches[0]) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const touch = e.touches[0];
+    const clientX = touch.clientX;
+    const clientY = touch.clientY;
+
+    if (
+      clientX < rect.left ||
+      clientX > rect.right ||
+      clientY < rect.top ||
+      clientY > rect.bottom
+    ) {
+      return;
+    }
+
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+    const xPct = (x / rect.width) * 100;
+    const yPct = (y / rect.height) * 100;
+
+    setPos({ x, y });
+    setRelPos({ x: xPct, y: yPct });
+  };
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key.toLowerCase() === "l" && !e.metaKey && !e.ctrlKey) {
@@ -70,6 +95,8 @@ export default function DarkroomLoupe({
       <div
         ref={containerRef}
         onMouseMove={handleMouseMove}
+        onTouchMove={handleTouchMove}
+        onTouchStart={handleTouchMove}
         className={`relative overflow-hidden ${aspect} ${loupeActive ? "cursor-none" : ""}`}
       >
         <img

@@ -173,9 +173,12 @@ export default function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center justify-between px-6 py-6">
+        <div className="flex items-center justify-between px-6 py-6 border-t hairline">
           <span className="meta">studio@unseeneye.com</span>
-          <span className="meta">Paris {clock}</span>
+          <div className="flex items-center gap-3">
+            <AmbientSoundscape />
+            <span className="meta">Paris {clock}</span>
+          </div>
         </div>
       </div>
     </>

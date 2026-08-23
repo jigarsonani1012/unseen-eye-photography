@@ -46,10 +46,10 @@ export default function FilmStockSwitch() {
   const current = STOCKS.find((s) => s.id === stock) || STOCKS[0];
 
   return (
-    <div className="fixed bottom-6 right-6 z-[90] select-none font-mono text-[9px]">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] select-none font-mono text-[9px]">
       {/* Popover Menu */}
       {open && (
-        <div className="mb-2 p-3 bg-[var(--bg)]/95 backdrop-blur-md border hairline rounded-lg shadow-2xl w-64 space-y-3 animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="mb-2 p-3 bg-[var(--bg)]/95 backdrop-blur-md border hairline rounded-lg shadow-2xl w-[calc(100vw-32px)] max-w-xs sm:w-64 space-y-3 animate-in fade-in slide-in-from-bottom-2 duration-200">
           <div className="flex items-center justify-between border-b hairline pb-2">
             <span className="font-bold uppercase tracking-widest text-[var(--accent)] flex items-center gap-1.5">
               <Film size={12} />
@@ -106,3 +106,4 @@ export default function FilmStockSwitch() {
     </div>
   );
 }
+
