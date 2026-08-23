@@ -92,15 +92,18 @@ export default function FilmStockSwitch() {
         </div>
       )}
 
-      {/* Floating Toggle Button */}
+      {/* Floating Toggle Button (Responsive Pill) */}
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="flex items-center gap-2 px-3 py-2 bg-[var(--bg)]/90 backdrop-blur-md border hairline rounded-full shadow-lg hover:border-[var(--accent)] transition-all group"
+        className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 bg-[var(--bg)]/90 backdrop-blur-md border hairline rounded-full shadow-lg hover:border-[var(--accent)] transition-all group"
         title="Toggle Film Emulation [M]"
       >
-        <Film size={13} className="text-[var(--accent)] group-hover:rotate-45 transition-transform" />
-        <span className="tracking-wider uppercase font-semibold">
+        <Film size={12} className="text-[var(--accent)] group-hover:rotate-45 transition-transform shrink-0" />
+        <span className="tracking-wider uppercase font-semibold hidden xs:inline sm:inline">
           EMULSION: <span className="text-[var(--accent)]">{current.name}</span>
+        </span>
+        <span className="tracking-wider uppercase font-semibold text-[var(--accent)] inline xs:hidden sm:hidden">
+          {current.name.split(" ")[0]}
         </span>
       </button>
     </div>

@@ -51,10 +51,10 @@ export default function KeyboardShortcuts() {
 
   return (
     <>
-      {/* Discreet Trigger Button in Footer */}
+      {/* Discreet Trigger Button in Footer (Desktop / Physical Keyboard only) */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-[80] flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-[var(--bg)]/90 backdrop-blur-md border hairline shadow-md text-[9px] font-mono hover:border-[var(--accent)] transition-all group"
+        className="hidden md:flex fixed bottom-6 left-6 z-[80] items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-[var(--bg)]/90 backdrop-blur-md border hairline shadow-md text-[9px] font-mono hover:border-[var(--accent)] transition-all group"
         title="Keyboard Shortcuts [?]"
       >
         <Keyboard size={12} className="text-[var(--accent)]" />

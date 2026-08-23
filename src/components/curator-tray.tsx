@@ -37,12 +37,12 @@ export default function CuratorTray() {
   return (
     <>
       {/* Floating Collector Tray Pill */}
-      <div className="fixed bottom-16 right-4 sm:bottom-6 sm:right-48 z-[85] select-none font-mono text-[9px]">
+      <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-28 z-[85] select-none font-mono text-[9px]">
         <button
           onClick={() => setOpen(true)}
-          className="flex items-center gap-2 px-3 py-2 bg-[var(--fg)] text-[var(--bg)] rounded-full shadow-2xl hover:opacity-90 transition-all font-bold group"
+          className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 bg-[var(--fg)] text-[var(--bg)] rounded-full shadow-2xl hover:opacity-90 transition-all font-bold group"
         >
-          <Bookmark size={13} className="text-[var(--accent)] fill-[var(--accent)]" />
+          <Bookmark size={12} className="text-[var(--accent)] fill-[var(--accent)] shrink-0" />
           <span>CURATED TRAY ({pinned.length})</span>
         </button>
       </div>
