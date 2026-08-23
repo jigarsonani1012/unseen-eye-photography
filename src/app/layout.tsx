@@ -1,4 +1,5 @@
 import Cursor from "@/components/cursor";
+import CuratorTray from "@/components/curator-tray";
 import FilmStockSwitch from "@/components/film-stock-switch";
 import Footer from "@/components/footer";
 import KeyboardShortcuts from "@/components/keyboard-shortcuts";
@@ -63,10 +64,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
         <FilmStockSwitch />
         <KeyboardShortcuts />
+        <CuratorTray />
         <Cursor />
       </body>
     </html>
   );
 }
+
 
 

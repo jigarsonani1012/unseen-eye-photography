@@ -1,4 +1,5 @@
 import EditorialImage from "@/components/editorial-image";
+import MonographBook from "@/components/monograph-book";
 import Reveal from "@/components/reveal";
 import WorldMap from "@/components/world-map";
 import { ARTICLES, FINAL, FRAMES, HERO, HOURS, IMAGES, LOCATIONS, PEOPLE, PHOTOGRAPHER, PROJECTS, ROOMS, px } from "@/lib/data";
@@ -324,7 +325,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ————— CHAPTER 12 — FINAL IMAGE ————— */}
+      {/* ————— CHAPTER 12 — THE MONOGRAPH ————— */}
+      <section className="border-t hairline px-5 py-24 md:px-10 md:py-36 bg-[var(--panel)]/30">
+        <ChapterHead no="12" title="The monograph" meta="Italian cloth hardcover · 240 silver plates" />
+        <Reveal>
+          <MonographBook />
+        </Reveal>
+        <Reveal className="mt-12 text-center">
+          <CTA href="/book">Explore monograph edition</CTA>
+        </Reveal>
+      </section>
+
+      {/* ————— CHAPTER 13 — FINAL IMAGE ————— */}
       <section className="relative flex min-h-[92svh] items-end overflow-hidden bg-[#0c0b09]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={px(IMAGES[FINAL].src, 2000)} alt={IMAGES[FINAL].alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-70" />

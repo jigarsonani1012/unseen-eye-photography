@@ -81,7 +81,7 @@ export const IMAGES = {
   travel10: ph(8775536, "A runner crossing the field, Iceland, scale made human", "Roman Kirienko"),
 } as const;
 
-type ImgKey = keyof typeof IMAGES;
+export type ImgKey = keyof typeof IMAGES;
 
 // ——— Photographer ———
 export const PHOTOGRAPHER = {
