@@ -1,3 +1,4 @@
+import DarkroomDevelopmentFader from "@/components/darkroom-development-fader";
 import EditorialImage from "@/components/editorial-image";
 import Reveal from "@/components/reveal";
 import { ARTICLES, IMAGES, px } from "@/lib/data";
@@ -64,6 +65,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <p>{t}</p>
           </Reveal>
         ))}
+
+        {/* Interactive Darkroom Fader for Process Articles */}
+        {(a.slug === "why-i-still-shoot-film" || a.category === "Process") && (
+          <div className="my-12 -mx-4 sm:-mx-12">
+            <DarkroomDevelopmentFader />
+          </div>
+        )}
+
         <Reveal className="mt-14 border-t hairline pt-8">
           <p className="meta !normal-case !tracking-normal !text-[11px] leading-6">
             Written by Elias Vale. Photographs from the field. If a sentence here keeps you company, it has done its work.

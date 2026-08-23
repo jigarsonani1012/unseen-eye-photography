@@ -1,14 +1,16 @@
 "use client";
 
+import CertificateOfAuthenticity from "@/components/certificate-of-authenticity";
 import DarkroomLoupe from "@/components/darkroom-loupe";
 import PrintRoomModal from "@/components/print-room-modal";
 import Reveal from "@/components/reveal";
 import { IMAGES, ROOMS } from "@/lib/data";
-import { Frame } from "lucide-react";
+import { Frame, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 
 export default function GalleryGrid() {
   const [activePrint, setActivePrint] = useState<{ src: string; title: string } | null>(null);
+  const [activeCOA, setActiveCOA] = useState<{ title: string; editionNo: number; total: number } | null>(null);
 
   return (
     <>
@@ -61,13 +63,28 @@ export default function GalleryGrid() {
                           No. {String(ri * 4 + i + 1).padStart(3, "0")} · Edition of 12 · Hand-Signed
                         </div>
                       </div>
-                      <button
-                        onClick={() => setActivePrint({ src: photo.src, title: titleText })}
-                        className="flex items-center gap-1.5 px-2.5 py-1 border hairline rounded text-[8.5px] font-mono hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
-                      >
-                        <Frame size={11} />
-                        <span>PREVIEW ON WALL</span>
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() =>
+                            setActiveCOA({
+                              title: titleText,
+                              editionNo: ri * 4 + i + 1,
+                              total: 12,
+                            })
+                          }
+                          className="flex items-center gap-1.5 px-2.5 py-1 border hairline rounded text-[8.5px] font-mono hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors opacity-75 hover:opacity-100"
+                        >
+                          <ShieldCheck size={11} className="text-[var(--accent)]" />
+                          <span>COA</span>
+                        </button>
+                        <button
+                          onClick={() => setActivePrint({ src: photo.src, title: titleText })}
+                          className="flex items-center gap-1.5 px-2.5 py-1 border hairline rounded text-[8.5px] font-mono hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
+                        >
+                          <Frame size={11} />
+                          <span>PREVIEW ON WALL</span>
+                        </button>
+                      </div>
                     </figcaption>
                   </Reveal>
                 );
@@ -94,6 +111,18 @@ export default function GalleryGrid() {
           editionTotal={12}
         />
       )}
+
+      {/* Interactive Certificate of Authenticity Modal */}
+      {activeCOA && (
+        <CertificateOfAuthenticity
+          isOpen={!!activeCOA}
+          onClose={() => setActiveCOA(null)}
+          title={activeCOA.title}
+          editionNo={activeCOA.editionNo}
+          totalEditions={activeCOA.total}
+        />
+      )}
     </>
   );
 }
+
