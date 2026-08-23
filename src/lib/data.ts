@@ -497,12 +497,19 @@ export const COMMISSIONS = [
 // ——— Navigation ———
 export const NAV = [
   { label: "Work", href: "/work" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Stories", href: "/stories" },
   { label: "Archive", href: "/archive" },
+  { label: "Darkroom", href: "/darkroom" },
   { label: "World", href: "/world" },
-  { label: "People", href: "/people" },
   { label: "24 Hours", href: "/24-hours" },
+  { label: "The Book", href: "/book" },
+  { label: "Optics Lab", href: "/optics" },
+  { label: "4×5 Large Format", href: "/large-format" },
+  { label: "Salon Designer", href: "/salon" },
+  { label: "Walkthrough", href: "/walkthrough" },
   { label: "Journal", href: "/journal" },
+  { label: "Commissions", href: "/client" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

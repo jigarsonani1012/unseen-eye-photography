@@ -1,8 +1,10 @@
+import AudioStoryteller from "@/components/audio-storyteller";
 import Cursor from "@/components/cursor";
 import CuratorTray from "@/components/curator-tray";
 import FilmStockSwitch from "@/components/film-stock-switch";
 import Footer from "@/components/footer";
 import KeyboardShortcuts from "@/components/keyboard-shortcuts";
+import RangefinderViewfinder from "@/components/rangefinder-viewfinder";
 import SiteHeader from "@/components/site-header";
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Instrument_Serif, Inter } from "next/font/google";
@@ -65,11 +67,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <FilmStockSwitch />
         <KeyboardShortcuts />
         <CuratorTray />
+        <RangefinderViewfinder />
+        <AudioStoryteller />
         <Cursor />
       </body>
     </html>
   );
 }
+
 
 
 

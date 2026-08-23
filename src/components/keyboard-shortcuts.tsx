@@ -5,11 +5,12 @@ import { Keyboard, X, Sparkles, Moon, Sun, Search, Film, Maximize2 } from "lucid
 
 const SHORTCUTS = [
   { key: "?", label: "Shortcuts Cheat Sheet", desc: "Toggle this command palette" },
+  { key: "V", label: "Optical Viewfinder", desc: "Open 0.72× optical Leica M HUD" },
   { key: "T", label: "Toggle Theme", desc: "Switch Dark / Light exhibition mode" },
   { key: "L", label: "Darkroom Loupe", desc: "Activate 3.0× optical inspection glass" },
   { key: "M", label: "Film Stock Engine", desc: "Toggle Tri-X, CineStill, Portra emulsions" },
   { key: "F", label: "Fullscreen Mode", desc: "Immersive borderless exhibition view" },
-  { key: "Esc", label: "Close Active Modal", desc: "Dismiss loupe, print room, or lightbox" },
+  { key: "Esc", label: "Close Active Modal", desc: "Dismiss active dialog or lightbox" },
 ];
 
 export default function KeyboardShortcuts() {
