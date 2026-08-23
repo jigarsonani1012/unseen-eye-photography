@@ -1,7 +1,8 @@
 "use client";
 
 import { FRAMES, px } from "@/lib/data";
-import { ChevronLeft, ChevronRight, Disc, Eye } from "lucide-react";
+import { ChevronLeft, ChevronRight, Disc, Eye, Move3d } from "lucide-react";
+import Link from "next/link";
 import { useRef, useState } from "react";
 
 export default function FilmStripUnspooler() {
@@ -18,28 +19,38 @@ export default function FilmStripUnspooler() {
   return (
     <div className="relative w-full overflow-hidden select-none py-6">
       {/* Top Controls & Film Stock Badge */}
-      <div className="flex items-center justify-between px-5 md:px-10 mb-4 text-[9px] font-mono opacity-80">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-5 md:px-10 mb-4 text-[9px] font-mono opacity-80">
         <div className="flex items-center gap-2">
           <Disc size={13} className="text-[var(--accent)] animate-spin duration-1000" />
           <span className="font-bold uppercase tracking-widest text-[var(--accent)]">
             35MM FILM SPOOL · 36 EXP · KODAK TRI-X 400 EMULSION
           </span>
         </div>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => scroll("left")}
-            className="p-1.5 rounded border hairline hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
-            title="Scroll Film Left"
+        <div className="flex items-center gap-3">
+          <Link
+            href="/ribbon"
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full border hairline bg-[var(--panel)] text-[var(--fg)] hover:border-[var(--accent)] transition-all font-bold"
           >
-            <ChevronLeft size={13} />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="p-1.5 rounded border hairline hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
-            title="Scroll Film Right"
-          >
-            <ChevronRight size={13} />
-          </button>
+            <Move3d size={11} className="text-[var(--accent)]" />
+            <span>3D SPATIAL RIBBON [NEW]</span>
+          </Link>
+
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => scroll("left")}
+              className="p-1.5 rounded border hairline hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
+              title="Scroll Film Left"
+            >
+              <ChevronLeft size={13} />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="p-1.5 rounded border hairline hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
+              title="Scroll Film Right"
+            >
+              <ChevronRight size={13} />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -50,11 +61,15 @@ export default function FilmStripUnspooler() {
           <div className="relative w-16 md:w-20 h-48 md:h-56 bg-gradient-to-r from-[#1c1b18] via-[#33312b] to-[#1a1916] rounded-l-md border-r-2 border-[#100f0d] shadow-2xl flex flex-col justify-between p-2.5 text-[#eae6dd] border hairline">
             {/* Top Spool Spindle */}
             <div className="w-6 h-3 bg-gradient-to-b from-[#555] to-[#222] rounded-full mx-auto shadow-md border border-white/20" />
-            
+
             {/* Canister Body Label */}
             <div className="text-center space-y-1">
-              <div className="text-[7.5px] font-mono tracking-widest text-[var(--accent)] font-bold">UNSEEN EYE</div>
-              <div className="text-[11px] font-mono font-black tracking-wider leading-none text-white">TRI-X</div>
+              <div className="text-[7.5px] font-mono tracking-widest text-[var(--accent)] font-bold">
+                UNSEEN EYE
+              </div>
+              <div className="text-[11px] font-mono font-black tracking-wider leading-none text-white">
+                TRI-X
+              </div>
               <div className="text-[6.5px] font-mono opacity-60">400 / 36 EXP</div>
             </div>
 
@@ -105,7 +120,7 @@ export default function FilmStripUnspooler() {
                   />
                   {/* Subtle Grain Overlay */}
                   <div className="absolute inset-0 bg-amber-500/5 mix-blend-color pointer-events-none" />
-                  
+
                   {/* Hover Inspect Icon */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/frame:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white text-[9px] font-mono">
                     <Eye size={13} />
@@ -184,7 +199,9 @@ export default function FilmStripUnspooler() {
               </div>
               <div>
                 <span className="opacity-50 block">EXPOSURE</span>
-                <span className="font-semibold">{selectedFrame.shutter} · {selectedFrame.aperture}</span>
+                <span className="font-semibold">
+                  {selectedFrame.shutter} · {selectedFrame.aperture}
+                </span>
               </div>
             </div>
           </div>
