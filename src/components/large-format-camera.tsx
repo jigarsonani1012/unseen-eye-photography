@@ -20,15 +20,15 @@ export default function LargeFormatCamera() {
 
   return (
     <div className="relative w-full max-w-5xl mx-auto select-none">
-      <div className="p-4 sm:p-8 rounded-2xl border hairline bg-[#11100d] text-[#eae6dd] shadow-2xl overflow-hidden">
+      <div className="p-4 sm:p-8 rounded-2xl border hairline bg-[var(--panel)] text-[var(--fg)] shadow-2xl overflow-hidden transition-colors duration-500">
         {/* Header Bar */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b hairline">
           <div>
             <div className="flex items-center gap-2 text-[9px] font-mono text-[var(--accent)] font-bold tracking-widest uppercase">
               <Camera size={13} />
               <span>LINHOF MASTER TECHNIKA 4×5 · GROUND GLASS SIMULATOR</span>
             </div>
-            <h2 className="display text-3xl sm:text-4xl mt-1 text-white">
+            <h2 className="display text-3xl sm:text-4xl mt-1">
               Scheimpflug Tilt & Shift Plane
             </h2>
           </div>
@@ -39,7 +39,7 @@ export default function LargeFormatCamera() {
               className={`px-3 py-1.5 rounded-full border text-[9px] font-mono font-bold transition-colors ${
                 darkCloth
                   ? "bg-[var(--accent)] text-black border-[var(--accent)]"
-                  : "bg-black/60 border-white/20 text-white"
+                  : "bg-[var(--bg)] border hairline text-[var(--fg)]"
               }`}
             >
               DARK CLOTH: {darkCloth ? "DRAWN (4×5 VIEW)" : "OFF"}
@@ -47,7 +47,7 @@ export default function LargeFormatCamera() {
 
             <button
               onClick={() => setSceneIdx((p) => (p + 1) % LF_SCENES.length)}
-              className="px-3 py-1.5 rounded-full border border-white/20 text-[9px] font-mono hover:bg-white/10"
+              className="px-3 py-1.5 rounded-full border hairline text-[9px] font-mono hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
             >
               CYCLE PLATE
             </button>
