@@ -1,4 +1,5 @@
 import EditorialImage from "@/components/editorial-image";
+import FilmStripUnspooler from "@/components/film-strip-unspooler";
 import MonographBook from "@/components/monograph-book";
 import Reveal from "@/components/reveal";
 import WorldMap from "@/components/world-map";
@@ -213,21 +214,8 @@ export default function Home() {
         <div className="px-5 md:px-10">
           <ChapterHead no="07" title="The archive" meta="60 exhibited contacts — thousands in the flat file" />
         </div>
-        <div className="overflow-hidden">
-          <div className="drift flex w-max gap-1.5" aria-hidden>
-            {[...FRAMES.slice(0, 19), ...FRAMES.slice(0, 19)].map((f, i) => (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                key={`${f.id}-${i}`}
-                src={px(f.image.src, 420)}
-                alt=""
-                loading="lazy"
-                className="aspect-[4/3] h-36 w-auto object-cover md:h-52"
-              />
-            ))}
-          </div>
-        </div>
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-6 px-5 md:px-10">
+        <FilmStripUnspooler />
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-6 px-5 md:px-10">
           <p className="body-serif max-w-lg text-[var(--fg-soft)]">
             Every frame carries its number, its hour, its weather. The archive is not a storage room — it is the
             photographer&rsquo;s memory, made walkable.
